@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>jQuery Mobile page</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/room-route.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+ <script src ="js/jquery-2.1.4.min.js"></script>
+ <script src="js/MAINJSCODE.js"></script>
+
+  
+ 
+	  </head>
+
+<body>
+<!-------------------------------------------------------------------------------------
+									First App Page
+---------------------------------------------------------------------------------------->
+	<div class="page" data-role="page" id="first-page">
+	
+		<!-- App Navigation Bar -->
+		<div class="app-nav" data-role="header">
+			<div class="ui-grid-a">
+				<div class="ui-block-a"> <a href="#first-page"><img src="img/test2.png" alt="Room Route Logo"></a> </div>
+				<div class="ui-block-b flex-align">
+					<p id="currentLocation1">PAISLEY</p>
+				</div>
+			</div>
+		</div>
+		<!-- App Navigation Bar End -->
+		
+		<!-- First Page Content -->
+		<div data-role="main" class="ui-content">
+			<div class="ui-grid-a">
+				
+				<!-- Top Section -->
+				<div id="locationBG" class="ui-block">
+					<div class="ui-grid-a">
+						<div class="ui-block center-align-text">
+							<h2 class="heading-text">Where are you?</h2></div>
+						<div class="margin-fix ui-block center-align-text">
+							<select name="location" id="mylocation" onchange="imagechange()"> <!-- ID set to "myLocation" as per chris's code to grab selection -->
+							<option value=""></option>
+								<option value="Main Enterance">Main Enterance</option>
+								<option value="Building B">Elles Building North</option>
+								<option value="Building C"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- Top Section End-->
+				
+				<!-- Bottom Section -->
+				<div id="destinationBG" class="ui-block">
+					<div class="ui-grid-a">
+						<div class="ui-block center-align-text">
+							<h2 class="heading-text">Where you going?</h2></div>
+						<div class="margin-fix ui-block center-align-text">
+							<select name="location" id="mydestination" onchange="imagechange()"> <!-- ID set to "mydestination" as per chris's code to grab selection -->
+								<option value=""></option>
+								<option value="Gardener Building">Gardener Building</option>
+								<option value="Building B">Building B</option>
+								<option value="Building C">Building C</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- Bottom Section End -->
+				
+			</div>
+		</div>
+		<!-- First Page Content End -->
+		
+		<!-- App Footer -->
+		<div class="app-footer center-align-text" data-role="footer">
+			<a class="customButton" type="submit" value="submit" href="#second-page" onclick="go()">Submit</a> <!-- onclick set to "go()" as per chris's code to pass the selections -->
+		</div>
+		<!-- App Footer End -->
+	</div>
+	
+<!-------------------------------------------------------------------------------------
+									Second App Page
+---------------------------------------------------------------------------------------->
+		<div class="page" data-role="page" id="second-page">
+	
+		<!-- App Navigation Bar -->
+		<div class="app-nav" data-role="header">
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><a href="#first-page"><img src="img/test2.png" alt="Room Route Logo"></a></div>
+				<div class="ui-block-b flex-align">
+					<p id="currentLocation">You are here</p> <!-- Current location = route name -->
+				</div>
+			</div>
+		</div>
+		<!-- App Navigation Bar End -->
+		
+		<!-- First Page Content -->
+		<div data-role="main" class="ui-content">
+			<div class="ui-grid-a">
+				
+				<!-- Top Section -->
+				<div id="staticMapBg" class="ui-block"> <!-- Static Map to be inserted via jquery .css(url-to-image)-->
+					<div class="ui-grid-a">
+						<div class="ui-block">
+								<!-- No content within this div as Static map will be displayed here -->
+						</div>
+					</div>
+				</div>
+				<!-- Top Section End-->
+				
+				<!-- Bottom Section -->
+				<div id="routeBG" class="ui-block"> <!-- Route image which will change when user clicks next/back button-->
+					<div class="ui-grid-a">
+						<div class="ui-block">
+							<p id="routeNumberIndicator" class="number-indicator">1</p>	 <!-- Route number will change with background image and reflect on the static map at the top-->
+						</div>
+						<div class="ui-block center-align-text">
+							<div class="direction-text">
+								<p id="routeDirection">Keep going straight, turn left at next corner.</p> <!-- Text will change according to route number with simple steps on where to go -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Bottom Section End -->
+				
+			</div>
+		</div>
+		<!-- First Page Content End -->
+		
+		<!-- App Footer -->
+		<div class="app-footer center-align-text" data-role="footer">
+				<div class="ui-block-button customButtonColumn"><a type="submit" id="btn1" value="submit" href="#">1</a></div> <!-- Button to go back to main page-->
+				<div class="ui-block-button"><a class="customButtonColumn" id="btn2" onclick="numSwitch()" type="submit" value="submit" href="#">2</a></div> <!-- Button to go back to main page or if in the middle of array 1-- increment--><div class="ui-block-button"><a class="customButtonColumn" type="submit" value="submit" id="btn3" href="#">3</a></div>
+				<div class="ui-block-button"><a class="customButtonColumn" id="btn4" type="submit" value="submit" href="#">4</a></div> <!-- Button to go forward to next item in array-->
+		</div>
+		<!-- App Footer End -->
+		
+		
+		
+		
+	</div>
+	<!--Keep these locally stored for offline use-->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</body>
+
+</html>
